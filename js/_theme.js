@@ -74,6 +74,23 @@ Client search toggle
 ========================================================================== */
 $(document).ready(function(){
   $('.client-search-btn').click(function(){
-  $('.client-search').slideToggle("slow");
+  $('.client-search').slideToggle("fast");
   });
+});
+
+/* =========================================================================
+Navigation
+========================================================================== */
+$(document).ready(function(){
+  $('.js-menu').click(function(){
+  $('.js-nav').slideToggle("fast");
+  $('.menu-toggle').toggleClass("active");
+  });
+
+  $('.js-subnav-btn').click(function(){
+  $(this).toggleClass("active");
+  $(this).next('.js-subnav').slideToggle("fast");
+  $(this).parent().toggleClass("active");
+  });
+
 });
