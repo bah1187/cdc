@@ -116,6 +116,15 @@ Mixins
     }
 }
 
+@mixin blue-button {
+  display: block;
+  color: #fff;
+  background: $blue;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 /* =================================================================
 flex settings
 ================================================================= */
@@ -135,6 +144,7 @@ flex settings
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
+
 
 /*! =================================================================
 Reset
@@ -257,6 +267,7 @@ body {
     padding: 0;
     color: $text;
     font-size: px(16);
+    background: #fff;
 
     @include breakpoint($end-small) {
         font-size: px(18);
@@ -343,8 +354,18 @@ a.access-link {
     }
 }
 
+
+
 .inner-wrapper {
-  max-width: 1390px;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+.max-width-wrapper {
+  max-width: 1350px;
   margin: 0 auto;
 }
 
@@ -362,6 +383,47 @@ a.access-link {
         width: 100%;
         height: 100%;
     }
+}
+
+
+.blue-line-box {
+  webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.55);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.55);
+  box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.55);
+  border-top: 6px solid $blue;
+  border-radius: 6px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+
+  &__title {
+    font-size: 26px;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  &__content {
+    padding: 15px 15px 30px;;
+    overflow: hidden;
+  }
+
+  &__img {
+
+  }
+
+  &__img-left {
+    float: left;
+    padding-right: 30px;
+  }
+
+  &__text {
+    overflow: hidden;
+    font-size: 17px;
+  }
+
+
 }
 
 /*! =================================================================
@@ -497,9 +559,9 @@ Helpers
 .right {
     @include breakpoint($end-small) {
         float: right;
-        width: 45%;
     }
 }
+
 
 
 /* =================================================================
@@ -519,6 +581,8 @@ header {
     }
   }
 
+
+
   .header-bottom {
     background: $blue;
     @include clearfix;
@@ -530,7 +594,8 @@ header {
 
 
 
-    .inner-wrapper {
+    .header-wrapper {
+      background: none;
       @include breakpoint(1020px) {
         display: flex;
         justify-content: space-between;
@@ -542,12 +607,12 @@ header {
       color: #fff;
       font-size: 26px;
       float: left;
-      padding-left: 20px;
+      padding-left: 15px;
     }
 
     .menu-toggle {
       float: right;
-      padding-right: 20px;
+      padding-right: 15px;
       @include breakpoint(1020px) {
         display: none;
       }
@@ -759,6 +824,60 @@ Navigation
       text-decoration: none;
       border-left: 7px solid $blue;
     }
+  }
+}
+
+/* =================================================================
+banner
+================================================================= */
+
+.banner {
+  position: relative;
+  @include breakpoint(1000px) {
+    width: 67%;
+    max-width: 900px;
+  }
+
+  // img {
+  //   width: 100%;
+  //   display: block;
+  // }
+
+  &__img {
+    background: url("../v3_0/img/home-banner-sm.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 35%;
+    @include breakpoint($end-small) {
+      background: url("../v3_0/img/home-banner-lg.jpg") no-repeat;
+      background-position: center;
+      background-size: cover;
+      padding-top: 53%;
+      @include breakpoint(1000px) {
+        padding-top: 475px;
+      }
+    }
+  }
+
+  &__overlay {
+    padding: 8px 15px;
+    background-color: #fff;
+    @include breakpoint($end-small) {
+      position: absolute;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      left: 0;
+      top: 0;
+      width: 33%;
+      background-color: rgba(225,225,225,.75);
+      padding: 10% 15px 0;
+    }
+  }
+
+  &__title {
+    font-size: 35px;
+    margin-bottom: 15px;
   }
 }
 
@@ -1059,13 +1178,19 @@ advanced search form
 
     label {
         display: block;
+        margin-bottom: 5px;
+        color: #000;
+        font-size: 17px;
     }
 
     input, select {
         @extend %borderbox;
-        border: 1px solid $accent;
+        border: 1px solid #bdbdbd;
         border-radius: 2px;
         width: 100%;
+        height: 40px;
+        font-size: 17px;
+        color: #555555;
     }
 
     input {
@@ -1074,6 +1199,8 @@ advanced search form
 
     button {
         margin: 0 .4em 1em 0;
+        @include blue-button;
+        width: 120px;
     }
 
     select {
@@ -1117,7 +1244,12 @@ advanced search form
         }
     }
 
+    .reset-button {
+      display: none;
+    }
+
     .advanced-search-form-fields {
+      padding: 5px 15px;
         .js & {
             display: none;
 
@@ -1133,15 +1265,87 @@ advanced search form
 
     .advanced-search-toggle {
         display: none;
+        text-decoration: none;
 
         .js & {
             display: block;
 
-            @include breakpoint($end-small) {
+            @include breakpoint(1000px) {
                 display: none;
             }
         }
     }
+}
+
+// Banner Search Form
+
+.banner-search-wrap {
+  @include breakpoint(1000px) {
+    display: flex;
+  }
+}
+
+.banner-search-form {
+  background: #88c2ea;
+  @include breakpoint(1000px) {
+    width: 34%;
+    max-width: 450px;
+  }
+
+  .advanced-search-toggle {
+    text-align: center;
+    font-size: 23px;
+    color: #000;
+    padding: 15px;
+
+    &:after {
+      content: "\002B";
+      margin-left: 6px;
+    }
+  }
+
+  .advanced-search-form-fields {
+    @include breakpoint($end-small) {
+      justify-content: space-between;
+      padding: 15px 15px 20px;
+    }
+    @include breakpoint(1000px) {
+      display: block !important;
+    }
+    @include breakpoint(1350px) {
+      padding: 20px 50px;
+    }
+
+    h2 {
+      display: none;
+      color: #000;
+      @include breakpoint(1000px) {
+        display: block;
+        font-size: 23px;
+        margin-bottom: 15px;
+      }
+    }
+
+
+    p {
+        @include breakpoint($end-small) {
+          width: 50%;
+          width: calc(50% - 10px);
+          margin: 0 0 15px;
+        }
+
+        @include breakpoint(1000px) {
+          float: none;
+          width: 100%;
+      }
+    }
+
+    button {
+      @include breakpoint($end-small) {
+        margin: 0;
+      }
+    }
+  }
 }
 
 /* mindreader autocomplete search box ======================================================= */

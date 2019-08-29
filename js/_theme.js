@@ -5,7 +5,7 @@ global variables
 //these match up to
 (function () {
     var mq = {
-        end: window.matchMedia("(max-width: 799px)")
+        end: window.matchMedia("(max-width: 999px)")
     }
 
     //container ID/class names called by specific functions
