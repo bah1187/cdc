@@ -94,3 +94,37 @@ $(document).ready(function(){
   });
 
 });
+
+
+
+
+
+$('.slider-for').slick({
+  slide: 'li',
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  arrows: false,
+  focusOnSelect: true
+});
+
+
+$('.single-item').slick({
+
+slide: 'li',
+dots: false,
+slidesToShow: 1,
+slidesToScroll: 1,
+adaptiveHeight: true,
+autoplay: false,
+autoplaySpeed: 5000,
+
+});
