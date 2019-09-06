@@ -434,6 +434,14 @@ igation a.access-link {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  clear: both;
+}
+
+.wrapper-small {
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1260px;
+  margin: 0 auto;
 }
 
 .max-width-wrapper {
@@ -441,22 +449,7 @@ igation a.access-link {
   margin: 0 auto;
 }
 
-// .video-wrapper {
-//   position: relative;
-//   padding-bottom: 46.25%;
-//   padding-top: 9.25%;
-//   height: 0;
-//   font-size: 0;
-//
-//   iframe,
-//   img {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
+
 
 .video-pop {
 
@@ -468,15 +461,28 @@ igation a.access-link {
     &:after {
       content: " ";
       display: inline-block;
-      width: 68px;
-      height: 68px;
-      background: url(../v3_0/img/icons/play-button.png) center center no-repeat !important;
+      width: 60px;
+      height: 60px;
+      background: url(../v3_0/img/icons/play-button.png) no-repeat;
+      background-size: cover;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+      transition: .3s;
     }
+
+    &:hover,&:focus {
+      &:after {
+        transform: translateX(-50%) translateY(-50%) scale(1.2);
+        transition: .3s;
+      }
+    }
+
+
   }
+
+
 
   &__img {
     width: 100%;
@@ -561,7 +567,8 @@ Structure
   width: 100%;
   margin-top: 20px;
   @include breakpoint($end-small) {
-    margin-top: 76px;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 }
 
@@ -1046,10 +1053,11 @@ banner
 Footer
 ================================================================= */
 footer {
-  background: #333333;
-  padding: 30px;
 
-  > div {
+  .footer-top {
+    padding: 30px;
+    background: #333333;
+  .max-width-wrapper {
     @include breakpoint($end-small) {
       display: flex;
       justify-content: space-between;
@@ -1057,6 +1065,7 @@ footer {
       margin: 0 auto;
     }
   }
+}
 
   .footer-col {
     &:not(:nth-of-type(2)):not(:nth-of-type(4)) {
@@ -1138,6 +1147,68 @@ footer {
       }
     }
   }
+
+  .footer-bottom {
+      padding: 15px 30px;
+      background: #f5f5f5;
+
+      ul {
+        @include clearfix;
+      }
+
+
+      li {
+        @include breakpoint($end-small) {
+          float: left;
+        }
+
+        &:nth-of-type(1) {
+            @include breakpoint($end-small) {
+              width: 50%;
+          }
+        }
+
+        &:nth-of-type(2) {
+          @include breakpoint($end-small) {
+            width: 25%;
+          }
+        }
+
+        &:nth-of-type(3) {
+            @include breakpoint($end-small) {
+              width: 25%;
+          }
+        }
+      }
+
+
+      a {
+        font-size: 13px;
+        color: #000;
+
+
+        &.exit {
+
+          &:after {
+            content: "\f1e7";
+            font-family: cdciconfont;
+            display: inline-block;
+            line-height: 1;
+            font-weight: 400;
+            font-style: normal;
+            speak: none;
+            text-decoration: inherit;
+            text-transform: none;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
+  }
+
+
 }
 /* =================================================================
 site selector
@@ -1328,17 +1399,21 @@ advanced search form
 ================================================================= */
 .advanced-search-form {
   clear: both;
+  background: $blue;
+  max-width: 1350px;
+  margin: 30px auto 0;
+
+  #home & {
+    margin: 0;
+  }
 
   p {
     margin: 0 0 1em;
     @include breakpoint($end-small) {
-      margin: 0 0.5em 1em 0;
       float: left;
-      width: 14%;
-
-      &:nth-child(1) {
-        width: 18%;
-        margin-right: 1em;
+      width: calc(22% - 10px);
+      @include breakpoint(1000px) {
+        width: calc(22% - 42px);
       }
     }
   }
@@ -1348,6 +1423,7 @@ advanced search form
     margin-bottom: 5px;
     color: #000;
     font-size: 17px;
+    color: #fff;
   }
 
   input,
@@ -1359,6 +1435,13 @@ advanced search form
     height: 40px;
     font-size: 17px;
     color: #555555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    @include breakpoint($end-small) {
+      font-size: 14px;
+    }
+
   }
 
   input {
@@ -1366,9 +1449,12 @@ advanced search form
   }
 
   button {
-    margin: 0 0.4em 1em 0;
-    @include blue-button;
-    width: 120px;
+    color: #fff;
+    padding: 0;
+    @include breakpoint($end-small) {
+      padding: 10px 0 0 15px;
+
+    }
   }
 
   select {
@@ -1413,31 +1499,57 @@ advanced search form
   }
 
   .reset-button {
-    display: none;
+    display: none !important;
   }
 
-  .advanced-search-form-fields {
-    padding: 5px 15px;
+  .default-search-fields {
+    display: none;
+    padding: 5px 15px 25px;
+    @include breakpoint($end-small) {
+      display: block !important;
+      padding: 15px;
+      margin-top: 30px;
+    }
 
-    .js & {
+
+    h2 {
       display: none;
+      @include breakpoint(1000px) {
+        display: block;
+        font-size: 23px;
+        color: #fff;
+        padding-right: 15px;
+      }
+    }
+
+    >div {
       @include breakpoint($end-small) {
-        display: -ms-flex;
-        display: -webkit-flex;
         display: flex;
-        flex-wrap: wrap;
-        @include flex-property(align-items, flex-end);
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
       }
     }
   }
 
+
   .advanced-search-toggle {
     display: none;
     text-decoration: none;
+    color: #fff;
+    font-size: 23px;
+    text-align: center;
+    padding: 15px;
+
+    &:after {
+      content: "\002B";
+      margin-left: 6px;
+    }
 
     .js & {
       display: block;
-      @include breakpoint(1000px) {
+      @include breakpoint($end-small) {
         display: none;
       }
     }
@@ -1467,18 +1579,36 @@ advanced search form
       content: "\002B";
       margin-left: 6px;
     }
+
+    .js & {
+      display: block;
+      @include breakpoint(1000px) {
+        display: none;
+      }
+    }
   }
 
   .advanced-search-form-fields {
+    padding: 5px 15px;
     @include breakpoint($end-small) {
       justify-content: space-between;
       padding: 15px 15px 20px;
+
     }
     @include breakpoint(1000px) {
       display: block !important;
     }
     @include breakpoint(1350px) {
       padding: 20px 50px;
+    }
+
+    >div {
+      width: 100%;
+      @include breakpoint($end-small) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
 
     h2 {
@@ -1489,6 +1619,10 @@ advanced search form
         font-size: 23px;
         margin-bottom: 15px;
       }
+    }
+
+    label {
+      color: #000;
     }
 
     p {
@@ -1504,6 +1638,10 @@ advanced search form
     }
 
     button {
+        margin: 0 0.4em 1em 0;
+        @include blue-button;
+        width: 120px;
+
       @include breakpoint($end-small) {
         margin: 0;
       }
@@ -1561,7 +1699,7 @@ HomePage
 
   .blue-line-box {
     @include breakpoint($end-small) {
-      height: 200px;
+      height: 215px;
     }
   }
 }
@@ -1746,20 +1884,75 @@ li {
 }
 
 /* =================================================================
+search results
+================================================================= */
+#search {
+
+
+  #search-results {
+    margin-bottom: 30px;
+    @include breakpoint($end-small) {
+      float: right;
+      width: 60%;
+      margin-bottom: 50px;
+
+    }
+      @include breakpoint(1000px) {
+        width: 70%;
+      }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+  }
+
+  aside {
+    @include breakpoint($end-small) {
+      float: left;
+      width: 40%;
+      padding-right: 40px;
+    }
+    @include breakpoint(1000px) {
+      width: 30%;
+
+    }
+  }
+}
+
+/* =================================================================
 search results - result list
 ================================================================= */
-#search-results-list {
+#search-results-list, #job-matching-results {
+
+
+
   > ul {
     list-style: none;
     margin: 0;
 
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: 20px;
+      }
+    }
+
     h2 {
       margin: 0;
+      font-size: 23px;
+      color: #0d538e;
+      margin-bottom: 2px;
+    }
+
+    span {
+      color: #555555;
     }
 
     a {
       display: block;
-      padding: 0.5em 0;
+      padding: 15px;
+      border: solid #e0e0e0;
+      border-radius: 6px;
+      background: #f5f5f5;
     }
   }
 
@@ -1775,18 +1968,37 @@ search results - result list
   }
 }
 
+#applied-filters {
+  background: #edf9ff;
+  padding: 12px;
+  border: solid #e0e0e0;
+  border-radius: 6px;
+  @include clearfix;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 17px;
+    float: left;
+    padding-top: 5px;
+  }
+}
+
 #applied-filters .filter-button {
   -webkit-appearance: none;
   background: none;
   border: none;
-  padding: 0;
+  padding: 5px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   display: inline-block;
-  color: #035A8F;
+  color: #000;
+  background: #c0e9ff;
+  border: solid #e0e0e0;
+  border-radius: 6px;
   text-decoration: none;
   text-align: left;
+  float: right;
 
   &:after {
     content: "[x]";
@@ -1807,6 +2019,69 @@ search results - result list
 /* =================================================================
 search results - pagination
 ================================================================= */
+
+.pagination {
+  margin-top: 20px;
+
+  .pagination-page-count {
+    margin-bottom: 20px;
+    @include breakpoint($end-small) {
+      float: left;
+    }
+
+    .pagination-current-label {
+      padding-right: 10px;
+    }
+
+    input {
+      background: $blue;
+      color: #fff;
+      border: none;
+      text-align: center;
+      height: 30px;
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    button {
+      display: none;
+    }
+  }
+
+
+  .pagination-paging {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    @include breakpoint($end-small) {
+      justify-content: flex-end;
+    }
+
+    .prev, .next {
+      display: block;
+      background: $blue;
+      color: #fff;
+      font-size: 17px;
+      padding: 10px;
+      border-radius: 6px;
+      width: 130px;
+      text-align: center;
+
+      &.disabled {
+        background: #c0e9ff;
+        color: #010101;
+      }
+    }
+
+    .prev {
+      @include breakpoint($end-small) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+}
+
 .pagination-current-label b {
   @extend %wai;
 }
@@ -1817,16 +2092,73 @@ search results - pagination
   .js & {
     display: block;
   }
+
+  .pagination-show-all {
+    display: block;
+    background: $blue;
+    color: #fff;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 6px;
+    width: 160px;
+    text-align: center;
+  }
 }
 /* =================================================================
 search results - search filters
 ================================================================= */
 #search-filters {
   background: #fff;
+  @include breakpoint($end-small) {
+    margin-bottom: 50px;
+  }
+
+  >div {
+    margin-top: 70px;
+    padding: 0 15px;
+    @include breakpoint($end-small) {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+
 
   #refined-search {
+    margin-bottom: 20px;
     label {
       display: block;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .instruction-text {
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    input {
+      height: 37px;
+      width: calc(100% - 26px);
+      padding-left: 10px;
+      border: 1px solid #c8c8c8;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    button {
+      font-size: 0;
+      padding: 0 0 0 5px;
+      &:after {
+        font-size: 22px;
+        font-family: "cdciconfont";
+        content: "\f21e";
+      }
     }
 
     .keyword-tag-error {
@@ -1857,17 +2189,17 @@ search results - search filters
   }
 
   section[data-expandable="true"] {
+
     button.expandable-parent {
+      border-bottom: 1px solid #c8c8c8;
       -webkit-appearance: none;
-      background: none;
-      color: inherit;
-      border: none;
-      padding: 0;
+      color: #000000;
+      padding: 10px 0;
       font: inherit;
       cursor: pointer;
       outline: inherit;
       display: inherit;
-      color: #035A8F;
+
       text-decoration: none;
       width: 100%;
       text-align: left;
@@ -1881,13 +2213,13 @@ search results - search filters
     .js & {
       .expandable-parent {
         &:after {
-          content: "[+]";
+          content: "+";
           display: inline-block;
           float: right;
         }
 
         &.expandable-child-open:after {
-          content: "[-]";
+          content: "-";
         }
       }
     }
@@ -1913,10 +2245,16 @@ search results - search filters
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    padding: 15px;
 
     ul {
       margin-left: 2em;
     }
+
+    li {
+      margin-bottom: 8px;
+    }
+
     @include breakpoint($end-small) {
       max-height: 200px;
     }
@@ -1925,11 +2263,17 @@ search results - search filters
       @extend %borderbox;
       cursor: pointer;
       display: block;
+      font-size: 16px;
+
+      .filter__facet-count {
+        display: none;
+      }
     }
 
     input[type="checkbox"] {
       clear: right;
       float: right;
+      margin-top: 3px;
 
       &:disabled + label {
         color: graytext;
@@ -1964,8 +2308,12 @@ search results - search filters
 
 #search-filter-controls {
   text-align: center;
-  @include breakpoint($end-small) {
-    text-align: right;
+  padding-top: 15px;
+
+
+  button {
+    color: #26418f;
+    text-decoration: underline;
   }
 }
 @include filter-slide-out(800px, 0, search-filters);
@@ -1976,13 +2324,20 @@ search results - search filters
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   display: block;
-  height: 3em;
   left: 0;
-  padding: 5px 10px;
+  padding: 5px 15px;
   position: absolute;
-  text-align: left;
+  text-align: right;
   top: 0;
   width: 100%;
+  background: $blue;
+  font-size: 0;
+
+  &:after {
+    content: "\2715";
+    color: #fff;
+    font-size: 28px;
+  }
 
   &.open {
     position: fixed;
@@ -1993,6 +2348,15 @@ search results - search filters
 }
 
 #filter-slideout-toggle {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 0;
+  margin-bottom: 20px;
+
+  &:after {
+    content: "\002B";
+    margin-left: 6px;
+  }
   @include breakpoint($end-small) {
     display: none;
   }
@@ -2028,6 +2392,41 @@ job custom facet module
   }
 }
 /* =================================================================
+job details
+================================================================= */
+#job {
+
+  .job-description {
+    @include breakpoint($end-small) {
+      float: right;
+      width: 70%;
+      margin-bottom: 50px;
+    }
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000;
+  }
+
+  .job-info {
+    b {
+      color: #000;
+    }
+  }
+
+  aside {
+    @include breakpoint($end-small) {
+      float: left;
+      width: 30%;
+      padding-right: 40px;
+    }
+  }
+}
+
+/* =================================================================
 job details - style overrides for ATS description
 ================================================================= */
 .job-info {
@@ -2041,7 +2440,7 @@ job details - style overrides for ATS description
 }
 
 .ats-description {
-  margin-top: 1em;
+
 
   * {
     color: #000 !important;
@@ -2083,18 +2482,21 @@ job details - style overrides for ATS description
 
 .job-apply {
   clear: both;
+  margin: 0 0.4em 1em 0;
   display: block;
-  font-size: 1.1em;
-  margin: 1em 0;
-  padding: 5px 10px;
+  color: #fff;
+  background: #005eaa;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
   @include breakpoint($mid_small) {
-    float: right;
+
     line-height: 1.4em;
     min-width: 6em;
 
-    &.top {
-      margin: 0 0 1em 1em;
-    }
+
   }
 }
 
@@ -2141,14 +2543,164 @@ language redirection
     }
   }
 }
+
 /* =================================================================
 job matching page
 ================================================================= */
+
+#job-match {
+
+  #job-matching-results {
+    margin-bottom: 30px;
+    @include breakpoint($end-small) {
+      float: left;
+      width: 63%;
+    }
+
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      float: none;
+    }
+
+
+}
+
+
+    aside {
+        @include breakpoint($end-small) {
+            width: 33%;
+            float: right;
+            margin-top: 52px;
+        }
+    }
+}
 .job-matching-user {
-  img {
-    width: 100px;
-    margin-right: 10px;
+
+
+
+    img {
+
+    float: left;
+    width: 92px;
+    margin-right: 22px;
+    }
+
+
+}
+
+#job-matching-logout {
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+    border: solid #e0e0e0;
+    border-radius: 6px;
+    padding: 12px;
+
+    h2 {
+        font-size: 26px;
+        color: $blue;
+        margin-bottom: 15px;
+
+    }
+
+    a {
+        @include blue-button;
+        display: inline-block;
+        width: auto;
+        text-align: center;
+        font-size: 15px;
+            margin-top: 20px;
+
+        &:hover, &:focus {
+            text-decoration: none;
+            opacity: .8;
+        }
+    }
+}
+
+#job-matching-filters {
+    margin-bottom: 20px;
+
+    .expandable-childlist-open {
+        margin-bottom: 10px;
+    }
+
+    legend {
+        display: block;
+        width: 100%;
+        padding: 10px 5px;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 16px;
+        margin-bottom: 1px;
+
+        a {
+            // color: blue;
+        }
+
+    	&.expandable-child-open {
+    	    // background: blue;
+    	}
+    }
+
+    fieldset {
+        width: 100%;
+    }
+}
+
+.job-matching-location {
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        border: 1px solid #c7c7c7;
+        border-radius: 0;
+    }
+
+    button {
+        background: blue;
+        color: blue;
+        border: 0;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+.job-matching-filter-list {
+  padding: 10px 0;
+
+  li {
+    padding: 0 15px;
+    margin-bottom: 7px;
+    color: #333;
   }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+.job-matching-filter-list input[type="checkbox"]:checked+label {
+    background: #fff;
+    cursor: pointer;
+    color: #333;
+
+
+    &:hover, &:focus {
+        background: none;
+    }
+
+
+}
+
+.job-matching-filter-list input[type="checkbox"]:focus:checked+label, .job-matching-filter-list input[type="checkbox"]:hover:checked+label {
+    background: none;
 }
 /* =================================================================
 maintenance page
@@ -2166,6 +2718,28 @@ maintenance page
     vertical-align: middle;
   }
 }
+
+/* =================================================================
+Secondary Pages
+================================================================= */
+#error {
+  h1 {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+
+  #content {
+    margin-bottom: 20px;
+    @include breakpoint($end-small) {
+      margin-bottom: 40px;
+    }
+  }
+
+  a {
+    color: #0000EE
+  }
+}
+
 /* =================================================================
 social share - need to update icon references to match shared resources
 ================================================================= */
@@ -2891,22 +3465,29 @@ Search Map Styles
   }
 
   .video-container {
-    // height: 0;
-    // position: relative;
-    // width: 100%;
-    // padding: 0 0 75.25%;
+
     &:before {
       content: " ";
       display: inline-block;
-      width: 68px;
-      height: 68px;
-      background: url("../v3_0/img/icons/play-button.png") center center no-repeat !important;
+      width: 60px;
+      height: 60px;
+      background: url("../v3_0/img/icons/play-button.png")no-repeat;
+      background-size: cover;
       position: absolute;
       top: 41%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+      transition: .3s;
       @include breakpoint($end-small) {
         top: 50%;
+      }
+    }
+
+    &:hover, &:focus {
+
+      &:before {
+        transform: translateX(-50%) translateY(-50%) scale(1.2);
+        transition: .3s;
       }
     }
 

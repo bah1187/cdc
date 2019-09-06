@@ -11,11 +11,13 @@ global variables
     //container ID/class names called by specific functions
     var selectors = {
         searchForm: '.search-form',
-        advancedSearchForm: '.advanced-search-form',
+        advancedSearchForm: '.banner-search-form',
         pageWrap: '#page',
         socialShare: '.social-share',
         socialShareMore: '.share-more'
     }
+
+
 
 /* =========================================================================
 search form panel
@@ -37,6 +39,13 @@ function searchFormExpandable() {
 searchFormExpandable();
 mq.end.addListener(searchFormExpandable);
 
+
+$(document).ready(function(){
+  $('.js-default-search-toggle').click(function(){
+  $('.default-search-fields').slideToggle("fast");
+  });
+});
+
 /* =========================================================================
 slideout filters for search results on small screens
 ========================================================================= */
@@ -45,7 +54,7 @@ if ($('#search-results').length == 1) window.APP.MODELS.FilterSlideOut.create({
     animationSpeed: 200,
     pageWrapId: 'page',
     filterType: 'search',
-    openToggle: 'Filter',
+    openToggle: 'Filters',
     closeToggle: 'Close'
 });
 
@@ -100,7 +109,7 @@ $(document).ready(function(){
 
 
 $('.slider-for').slick({
-  slide: 'li',
+
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: true,
