@@ -97,16 +97,30 @@ $(document).ready(function(){
   });
 
   $('.js-subnav-btn').click(function(){
-  $(this).toggleClass("active");
-  $(this).next('.js-subnav').slideToggle("fast");
-  $(this).parent().toggleClass("active");
+    $(this).toggleClass("active");
+    $(this).next('.js-subnav').slideToggle("fast");
+    $(this).parent().toggleClass("active");
   });
-
 });
 
 
+// Close on Click outside of nav
+
+$(document).click(function(e) {
+	var container = $(".js-subnav,.js-nav");
+
+  if (!container.is(e.target) // if the target of the click isn't the container...
+       && container.has(e.target).length === 0) // ... nor a descendant of the container
+   {
+       $(".js-subnav").slideUp("fast");
+       $(".js-subnav-btn").removeClass("active");
+   }
+});
 
 
+/* =========================================================================
+Sliders
+========================================================================== */
 
 $('.slider-for').slick({
 
@@ -114,6 +128,7 @@ $('.slider-for').slick({
   slidesToScroll: 1,
   arrows: true,
   fade: true,
+  autoplay: true,
   asNavFor: '.slider-nav'
 });
 $('.slider-nav').slick({
@@ -138,11 +153,29 @@ autoplaySpeed: 5000,
 
 });
 
+/* =========================================================================
+Smooth Scroll
+========================================================================== */
+
+$(function() {
+$('a[href*="#"]:not([href="#"])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
 
 
-
-
-
+/* =========================================================================
+Event Calendar
+========================================================================== */
 
 
 $(function () {
