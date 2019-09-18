@@ -624,9 +624,50 @@ igation a.access-link {
       border-left: 1px solid #bfbfbf;
     }
   }
+}
 
+// External Link
 
+.external {
 
+  &:after {
+    font-family: cdciconfont;
+    content: "\f1e7";
+    display: inline-block;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 5px;
+    font-size: 13px;
+  }
+}
+
+// PDF link
+
+.pdf {
+
+  &:after {
+    font-family: cdciconfont;
+    content: "\f1ea";
+    display: inline-block;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 5px;
+    font-size: 13px;
+  }
 }
 
 /*! =================================================================
@@ -3372,10 +3413,15 @@ Content Pages - Universal
 
   &__item {
     margin-bottom: 13px;
+
+    a {
+      color: #075290;
+      text-decoration: underline;
+    }
   }
 
   &__item-link {
-    color: #26418f;
+    color: #075290;
     text-decoration: underline;
   }
 
