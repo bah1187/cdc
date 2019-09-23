@@ -59,6 +59,14 @@ if ($('#search-results').length == 1) window.APP.MODELS.FilterSlideOut.create({
 });
 
 /* =========================================================================
+Adding Aria Lable to Pagination for Accessibility
+========================================================================= */
+
+$(document).ready(function(){
+  $('#pagination-bottom').attr('aria-label', 'pagination navigation');
+});
+
+/* =========================================================================
 social share open/close toggle
 ========================================================================== */
 $(selectors.socialShare)
