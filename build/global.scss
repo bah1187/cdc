@@ -5,26 +5,19 @@
                 Author:   TMP Worldwide - Louisville, KY
                     Brett Harrison
                     brett.harrison@tmp.com
-                Initial Dev Start: 12/20/2017
-                Initial Dev End: 1/25/2018
+                Initial Dev Start: 8/23/2019
+                Initial Dev End: 9/27/2019
 
 */
 /* =================================================================
 custom fonts
 ================================================================= */
-
-
 @font-face {
-    font-family: cdciconfont;
-    src: url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.eot?a8c42e390c3890ce046a9fb4a0128a60);
-    src: url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.eot?a8c42e390c3890ce046a9fb4a0128a60#iefix) format("embedded-opentype"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.woff2?a8c42e390c3890ce046a9fb4a0128a60) format("woff2"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.woff?a8c42e390c3890ce046a9fb4a0128a60) format("woff"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.ttf?a8c42e390c3890ce046a9fb4a0128a60) format("truetype"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.svg?a8c42e390c3890ce046a9fb4a0128a60#icons) format("svg");
-
-    font-style: normal
+  font-family: cdciconfont;
+  src: url("https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.eot?a8c42e390c3890ce046a9fb4a0128a60");
+  src: url("https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.eot?a8c42e390c3890ce046a9fb4a0128a60#iefix") format("embedded-opentype"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.woff2?a8c42e390c3890ce046a9fb4a0128a60) format("woff2"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.woff?a8c42e390c3890ce046a9fb4a0128a60) format("woff"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.ttf?a8c42e390c3890ce046a9fb4a0128a60) format("truetype"),url(https://www.cdc.gov/TemplatePackage/4.0/assets/fonts/cdciconfont.svg?a8c42e390c3890ce046a9fb4a0128a60#icons) format("svg");
+  font-style: normal;
 }
-
-
-
-
 /* =================================================================
 variables
 ================================================================= */
@@ -38,10 +31,8 @@ $primary-contrast: #fff;
 $accent: #ccc;
 $text: #333;
 $alert: #c00;
-$blue: #005eaa;
-//Units
-$content-max: 1200px;
-//Fonts
+$blue: #005eaa; //Units
+$content-max: 1200px; //Fonts
 $base-font: 'Open Sans', sans-serif;
 $secondary-font: 'Merriweather', serif;
 /* =================================================================
@@ -116,11 +107,11 @@ Mixins
   padding: 9px;
   border: 1px solid $blue;
 
-  &:hover, &:focus {
-
+  &:focus,
+  &:hover {
     background: #fff;
     color: $blue;
-    transition: .5s;
+    transition: 0.5s;
   }
 }
 /* =================================================================
@@ -313,6 +304,7 @@ html {
   box-sizing: inherit;
 }
 // disabled
+
 *:disabled {
   opacity: 0.4;
   cursor: not-allowed !important;
@@ -349,15 +341,12 @@ body {
   color: $text;
   font-size: 17px;
   background: #fff;
-  @include breakpoint($end-small) {
-
-  }
+  @include breakpoint($end-small) {}
 }
 
 a {
   color: $text;
   text-decoration: none;
-
 
   &.access-link {
     @extend %wai;
@@ -419,6 +408,7 @@ strong {
   font-weight: bold !important;
 }
 // A11y: Skip
+
 igation a.access-link {
   background-color: #555;
   color: #fff;
@@ -454,10 +444,7 @@ igation a.access-link {
   margin: 0 auto;
 }
 
-
-
 .video-pop {
-
   &__button {
     padding: 0;
     position: relative;
@@ -468,26 +455,23 @@ igation a.access-link {
       display: inline-block;
       width: 60px;
       height: 60px;
-      background: url(../v3_0/img/icons/play-button.png) no-repeat;
+      background: url("../v3_0/img/icons/play-button.png") no-repeat;
       background-size: cover;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      transition: .3s;
+      transition: 0.3s;
     }
 
-    &:hover,&:focus {
+    &:focus,
+    &:hover {
       &:after {
         transform: translateX(-50%) translateY(-50%) scale(1.2);
-        transition: .3s;
+        transition: 0.3s;
       }
     }
-
-
   }
-
-
 
   &__img {
     width: 100%;
@@ -512,7 +496,6 @@ igation a.access-link {
     }
   }
 }
-
 // Universal Elements
 .blue-line-box {
   webkit-box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
@@ -548,7 +531,7 @@ igation a.access-link {
 
 .blue-heading-box {
   border: solid #e0e0e0;
-  border-width: 0px 1px 1px 1px;
+  border-width: 0 1px 1px 1px;
   border-radius: 6px 6px 0 0;
 
   h2 {
@@ -594,11 +577,11 @@ igation a.access-link {
   padding: 5px;
   text-align: left;
   webkit-box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
-    -moz-box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
-    box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
-    @include breakpoint($end-small) {
-      font-size: 17px;
-    }
+  -moz-box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
+  box-shadow: 0 0 11px 0 rgba(0,0,0,0.55);
+  @include breakpoint($end-small) {
+    font-size: 17px;
+  }
 
   th {
     font-weight: bold;
@@ -613,23 +596,21 @@ igation a.access-link {
     border-bottom: 0;
   }
 
-
-  td, th {
+  td,
+  th {
     padding: 5px;
 
     &:first-of-type {
       border-right: 1px solid #bfbfbf;
     }
+
     &:last-of-type {
       border-left: 1px solid #bfbfbf;
     }
   }
 }
-
 // External Link
-
 .external {
-
   &:after {
     font-family: cdciconfont;
     content: "\f1e7";
@@ -647,11 +628,8 @@ igation a.access-link {
     font-size: 13px;
   }
 }
-
 // PDF link
-
 .pdf {
-
   &:after {
     font-family: cdciconfont;
     content: "\f1ea";
@@ -669,7 +647,6 @@ igation a.access-link {
     font-size: 13px;
   }
 }
-
 /*! =================================================================
 Structure
 ================================================================= */
@@ -714,9 +691,11 @@ main {
 .align-center {
   align-items: center;
 }
+
 .align-top {
   align-items: start;
 }
+
 .align-bottom {
   align-items: end;
 }
@@ -744,8 +723,8 @@ main {
     flex-wrap: wrap;
   }
 
-  > li,
-  > div {
+  > div,
+  > li {
     margin-bottom: 30px;
     @include breakpoint($end-small) {
       margin-bottom: 12px;
@@ -789,6 +768,7 @@ Helpers
     float: left;
   }
 }
+
 .right {
   @include breakpoint($end-small) {
     float: right;
@@ -800,14 +780,8 @@ Helpers
     float: right;
   }
 }
-
-
 // Fluid Widths at breakpoints
-
-
-
 // used benefits
-
 .col-lg-1 {
   @include breakpoint(1200px) {
     width: 8.3%;
@@ -879,11 +853,6 @@ Helpers
     width: 100%;
   }
 }
-
-
-
-
-
 /* =================================================================
 header
 ================================================================= */
@@ -950,6 +919,7 @@ header {
   }
 }
 // Client search
+
 .client-search {
   display: none;
   margin-top: 12px;
@@ -958,6 +928,18 @@ header {
     margin-top: 0;
     width: 34%;
     max-width: 340px;
+  }
+
+  a {
+    float: right;
+    color: #005eaa;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  form {
+    clear: both;
   }
 
   &-btn {
@@ -1069,7 +1051,8 @@ Navigation
       padding: 17px 25px;
     }
 
-    &:hover, &:focus {
+    &:focus,
+    &:hover {
       background: #88c3ea;
       text-decoration: none;
       color: #000;
@@ -1120,8 +1103,8 @@ Navigation
       }
     }
 
-
-    &:hover, &:focus {
+    &:focus,
+    &:hover {
       background: #88c3ea;
       text-decoration: none;
       color: #000;
@@ -1137,11 +1120,10 @@ Navigation
         transform: rotate(-90deg);
       }
     }
-
-
   }
 }
 // Tier 2
+
 .sub-nav {
   background: #fff;
   padding: 0 25px 30px 40px;
@@ -1227,19 +1209,19 @@ banner
 Footer
 ================================================================= */
 footer {
-
   .footer-top {
     padding: 30px;
     background: #333333;
-  .max-width-wrapper {
-    @include breakpoint($end-small) {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1350px;
-      margin: 0 auto;
+
+    .max-width-wrapper {
+      @include breakpoint($end-small) {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1350px;
+        margin: 0 auto;
+      }
     }
   }
-}
 
   .footer-col {
     &:not(:nth-of-type(2)):not(:nth-of-type(4)) {
@@ -1323,66 +1305,60 @@ footer {
   }
 
   .footer-bottom {
-      padding: 15px 30px;
-      background: #f5f5f5;
+    padding: 15px 30px;
+    background: #f5f5f5;
 
-      ul {
-        @include clearfix;
+    ul {
+      @include clearfix;
+    }
+
+    li {
+      @include breakpoint($end-small) {
+        float: left;
       }
 
-
-      li {
+      &:nth-of-type(1) {
         @include breakpoint($end-small) {
-          float: left;
-        }
-
-        &:nth-of-type(1) {
-            @include breakpoint($end-small) {
-              width: 50%;
-          }
-        }
-
-        &:nth-of-type(2) {
-          @include breakpoint($end-small) {
-            width: 25%;
-          }
-        }
-
-        &:nth-of-type(3) {
-            @include breakpoint($end-small) {
-              width: 25%;
-          }
+          width: 50%;
         }
       }
 
-
-      a {
-        font-size: 13px;
-        color: #000;
-
-
-        &.exit {
-
-          &:after {
-            content: "\f1e7";
-            font-family: cdciconfont;
-            display: inline-block;
-            line-height: 1;
-            font-weight: 400;
-            font-style: normal;
-            speak: none;
-            text-decoration: inherit;
-            text-transform: none;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            font-size: 15px;
-            margin-left: 5px;
-          }
+      &:nth-of-type(2) {
+        @include breakpoint($end-small) {
+          width: 25%;
         }
       }
+
+      &:nth-of-type(3) {
+        @include breakpoint($end-small) {
+          width: 25%;
+        }
+      }
+    }
+
+    a {
+      font-size: 13px;
+      color: #000;
+
+      &.exit {
+        &:after {
+          content: "\f1e7";
+          font-family: cdciconfont;
+          display: inline-block;
+          line-height: 1;
+          font-weight: 400;
+          font-style: normal;
+          speak: none;
+          text-decoration: inherit;
+          text-transform: none;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          font-size: 15px;
+          margin-left: 5px;
+        }
+      }
+    }
   }
-
-
 }
 /* =================================================================
 site selector
@@ -1615,7 +1591,6 @@ advanced search form
     @include breakpoint($end-small) {
       font-size: 14px;
     }
-
   }
 
   input {
@@ -1627,7 +1602,6 @@ advanced search form
     padding: 0;
     @include breakpoint($end-small) {
       padding: 10px 0 0 15px;
-
     }
   }
 
@@ -1685,7 +1659,6 @@ advanced search form
       margin-top: 30px;
     }
 
-
     h2 {
       display: none;
       @include breakpoint(1000px) {
@@ -1696,7 +1669,7 @@ advanced search form
       }
     }
 
-    >div {
+    > div {
       @include breakpoint($end-small) {
         display: flex;
         justify-content: space-between;
@@ -1706,7 +1679,6 @@ advanced search form
       }
     }
   }
-
 
   .advanced-search-toggle {
     display: none;
@@ -1730,6 +1702,7 @@ advanced search form
   }
 }
 // Banner Search Form
+
 .banner-search-wrap {
   @include breakpoint(1000px) {
     display: flex;
@@ -1770,7 +1743,6 @@ advanced search form
     @include breakpoint($end-small) {
       justify-content: space-between;
       padding: 15px 15px 20px;
-
     }
     @include breakpoint(1000px) {
       display: block !important;
@@ -1779,7 +1751,7 @@ advanced search form
       padding: 20px 50px;
     }
 
-    >div {
+    > div {
       width: 100%;
       @include breakpoint($end-small) {
         display: flex;
@@ -1815,10 +1787,9 @@ advanced search form
     }
 
     button {
-        margin: 0 0.4em 1em 0;
-        @include blue-button;
-        width: 120px;
-
+      margin: 0 0.4em 1em 0;
+      @include blue-button;
+      width: 120px;
       @include breakpoint($end-small) {
         margin: 0;
       }
@@ -1867,13 +1838,10 @@ advanced search form
     }
   }
 }
-
 /* =================================================================
 HomePage
 ================================================================= */
-
 #home {
-
   .blue-line-box {
     @include breakpoint($end-small) {
       height: 215px;
@@ -1882,7 +1850,6 @@ HomePage
 }
 
 .diversity-video {
-
   &__img {
     background: url("../v3_0/img/video-imgs/diversity-video-bg.jpg") no-repeat;
     background-size: cover;
@@ -1894,8 +1861,6 @@ HomePage
     }
   }
 }
-
-
 /* =================================================================
 Featured Jobs Module
 ================================================================= */
@@ -1904,6 +1869,7 @@ Featured Jobs Module
   @include breakpoint(1200px) {
     margin-bottom: 50px;
   }
+
   a {
     display: block;
     color: #29434e;
@@ -1912,7 +1878,6 @@ Featured Jobs Module
   }
 
   ul {
-
     padding: 30px 30px 0;
     @include breakpoint($end-small) {
       display: flex;
@@ -1924,10 +1889,9 @@ Featured Jobs Module
 
   li {
     margin-bottom: 30px;
-
     @include breakpoint($end-small) {
-        padding-right: 15px;
-        width: 33.3%;
+      padding-right: 15px;
+      width: 33.3%;
     }
 
     span {
@@ -1936,24 +1900,23 @@ Featured Jobs Module
     }
   }
 }
-
 /* =================================================================
 Future Applicant Module - New Hires
 ================================================================= */
-.applicant-info, .new-hire-info {
+.applicant-info,
+.new-hire-info {
   margin-bottom: 30px;
   @include breakpoint(1200px) {
     margin-bottom: 0;
   }
+
   &__list {
     padding: 10px 20px;
   }
 
   &__item {
-
     &:not(:last-of-type) {
       border-bottom: 1px dotted #e9e9e9;
-
     }
   }
 
@@ -1973,7 +1936,6 @@ Future Applicant Module - New Hires
     margin-bottom: 32px;
   }
 }
-
 /* =================================================================
 Job Matching Callout
 ================================================================= */
@@ -1989,13 +1951,12 @@ Job Matching Callout
   &__link-wrap {
     display: block;
     padding: 20px;
-
-    @include breakpoint(1200px)  {
+    @include breakpoint(1200px) {
       #home & {
-          padding: 20px 60px 20px 20px;
-        }
+        padding: 20px 60px 20px 20px;
       }
     }
+  }
 
   &__image-wrap {
     float: left;
@@ -2024,75 +1985,69 @@ Job Matching Callout
     }
   }
 }
-
 /* =================================================================
 Related Content
 ================================================================= */
 .related-content {
-
-
-ul {
-  @include breakpoint(1000px) {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-li {
-  margin-bottom: 30px;
-  @include breakpoint(1000px) {
-    width: 33.3%;
-
-    &:first-of-type {
-      margin-right: 15px;
-    }
-    &:last-of-type {
-      margin-left: 15px;
+  ul {
+    @include breakpoint(1000px) {
+      display: flex;
+      justify-content: space-between;
     }
   }
 
-  img {
-    width: 100%;
+  li {
+    margin-bottom: 30px;
+    @include breakpoint(1000px) {
+      width: 33.3%;
+
+      &:first-of-type {
+        margin-right: 15px;
+      }
+
+      &:last-of-type {
+        margin-left: 15px;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    padding: 22px;
+
+    p {
+      font-size: 17px;
+      padding: 25px 0 35px;
+    }
+
+    a {
+      @include blue-button;
+      text-align: center;
+      max-width: 140px;
+    }
   }
 }
-
-&__content {
-  padding: 22px;
-
-  p {
-    font-size: 17px;
-    padding: 25px 0 35px;
-  }
-
-  a {
-    @include blue-button;
-    text-align: center;
-    max-width: 140px;
-  }
-}
-
-}
-
 /* =================================================================
 search results
 ================================================================= */
 #search {
-
-
   #search-results {
     margin-bottom: 30px;
     @include breakpoint($end-small) {
       float: right;
       width: 60%;
       margin-bottom: 50px;
-
     }
-      @include breakpoint(1000px) {
-        width: 70%;
-      }
-      @include breakpoint(1200px) {
-        padding-right: 100px;
-      }
+    @include breakpoint(1000px) {
+      width: 70%;
+    }
+    @include breakpoint(1200px) {
+      padding-right: 100px;
+    }
+
     h1 {
       font-size: 26px;
       margin-bottom: 15px;
@@ -2115,14 +2070,11 @@ search results
     }
   }
 }
-
 /* =================================================================
 search results - result list
 ================================================================= */
-#search-results-list, #job-matching-results {
-
-
-
+#job-matching-results,
+#search-results-list {
   > ul {
     list-style: none;
     margin: 0;
@@ -2151,9 +2103,10 @@ search results - result list
       border-radius: 6px;
       background: #f5f5f5;
 
-      &:hover, &:focus {
+      &:focus,
+      &:hover {
         border: solid $blue;
-        transition: .7s;
+        transition: 0.7s;
       }
     }
   }
@@ -2221,7 +2174,6 @@ search results - result list
 /* =================================================================
 search results - pagination
 ================================================================= */
-
 .pagination {
   margin-top: 20px;
 
@@ -2250,7 +2202,6 @@ search results - pagination
     }
   }
 
-
   .pagination-paging {
     display: flex;
     justify-content: space-between;
@@ -2259,20 +2210,27 @@ search results - pagination
       justify-content: flex-end;
     }
 
-    .prev, .next {
+    .next,
+    .prev {
       display: block;
       background: $blue;
       color: #fff;
       font-size: 17px;
-      padding: 10px;
+      padding: 9px;
       border-radius: 6px;
       width: 130px;
       text-align: center;
+      border: 1px solid $blue;
 
       &.disabled {
-        // background: #c0e9ff;
-        // color: #010101;
         display: none;
+      }
+
+      &:focus,
+      &:hover {
+        background: #fff;
+        color: $blue;
+        transition: 0.5s;
       }
     }
 
@@ -2282,7 +2240,6 @@ search results - pagination
       }
     }
   }
-
 }
 
 .pagination-current-label b {
@@ -2301,10 +2258,18 @@ search results - pagination
     background: $blue;
     color: #fff;
     font-size: 17px;
-    padding: 10px;
+    padding: 9px;
     border-radius: 6px;
     width: 160px;
     text-align: center;
+    border: 1px solid $blue;
+
+    &:focus,
+    &:hover {
+      background: #fff;
+      color: $blue;
+      transition: 0.5s;
+    }
   }
 }
 /* =================================================================
@@ -2316,7 +2281,7 @@ search results - search filters
     margin-bottom: 50px;
   }
 
-  >div {
+  > div {
     margin-top: 70px;
     padding: 0 15px;
     @include breakpoint($end-small) {
@@ -2334,10 +2299,9 @@ search results - search filters
     }
   }
 
-
-
   #refined-search {
     margin-bottom: 20px;
+
     label {
       display: block;
       font-size: 20px;
@@ -2364,6 +2328,7 @@ search results - search filters
     button {
       font-size: 0;
       padding: 0 0 0 5px;
+
       &:after {
         font-size: 22px;
         font-family: "cdciconfont";
@@ -2399,7 +2364,6 @@ search results - search filters
   }
 
   section[data-expandable="true"] {
-
     button.expandable-parent {
       border-bottom: 1px solid #c8c8c8;
       -webkit-appearance: none;
@@ -2409,7 +2373,6 @@ search results - search filters
       cursor: pointer;
       outline: inherit;
       display: inherit;
-
       text-decoration: none;
       width: 100%;
       text-align: left;
@@ -2464,7 +2427,6 @@ search results - search filters
     li {
       margin-bottom: 8px;
     }
-
     @include breakpoint($end-small) {
       max-height: 200px;
     }
@@ -2520,7 +2482,6 @@ search results - search filters
   text-align: center;
   padding-top: 15px;
 
-
   button {
     color: #26418f;
     text-decoration: underline;
@@ -2571,7 +2532,6 @@ search results - search filters
     display: none;
   }
 }
-
 /* =================================================================
 Search Results Sort
 ================================================================= */
@@ -2612,8 +2572,6 @@ Search Results Sort
     background: #c0e9ff;
   }
 }
-
-
 /* =================================================================
 job alerts form - location pin
 ================================================================= */
@@ -2648,7 +2606,6 @@ job custom facet module
 job details
 ================================================================= */
 #job {
-
   .job-description {
     @include breakpoint($end-small) {
       float: right;
@@ -2678,7 +2635,6 @@ job details
     }
   }
 }
-
 /* =================================================================
 job details - style overrides for ATS description
 ================================================================= */
@@ -2693,8 +2649,6 @@ job details - style overrides for ATS description
 }
 
 .ats-description {
-
-
   * {
     color: #000 !important;
     font: inherit 1rem Arial, Helvetica, sans-serif !important;
@@ -2741,15 +2695,20 @@ job details - style overrides for ATS description
   background: #005eaa;
   font-size: 17px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 9px;
   width: 120px;
   text-align: center;
+  border: 1px solid $blue;
   @include breakpoint($mid_small) {
-
     line-height: 1.4em;
     min-width: 6em;
+  }
 
-
+  &:focus,
+  &:hover {
+    background: #fff;
+    color: $blue;
+    transition: 0.5s;
   }
 }
 
@@ -2796,20 +2755,16 @@ language redirection
     }
   }
 }
-
 /* =================================================================
 job matching page
 ================================================================= */
-
 #job-match {
-
   #job-matching-results {
     margin-bottom: 30px;
     @include breakpoint($end-small) {
       float: left;
       width: 63%;
     }
-
 
     h1 {
       font-size: 26px;
@@ -2819,110 +2774,101 @@ job matching page
     ul {
       float: none;
     }
+  }
 
-
-}
-
-
-    aside {
-        @include breakpoint($end-small) {
-            width: 33%;
-            float: right;
-            margin-top: 52px;
-        }
+  aside {
+    @include breakpoint($end-small) {
+      width: 33%;
+      float: right;
+      margin-top: 52px;
     }
+  }
 }
+
 .job-matching-user {
-
-
-
-    img {
-
+  img {
     float: left;
     width: 92px;
     margin-right: 22px;
-    }
-
-
+  }
 }
 
 #job-matching-logout {
-    margin-bottom: 5px;
-    float: left;
-    width: 100%;
-    border: solid #e0e0e0;
-    border-radius: 6px;
-    padding: 12px;
+  margin-bottom: 5px;
+  float: left;
+  width: 100%;
+  border: solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px;
 
-    h2 {
-        font-size: 26px;
-        color: $blue;
-        margin-bottom: 15px;
+  h2 {
+    font-size: 26px;
+    color: $blue;
+    margin-bottom: 15px;
+  }
 
+  a {
+    @include blue-button;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 20px;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
     }
-
-    a {
-        @include blue-button;
-        display: inline-block;
-        width: auto;
-        text-align: center;
-        font-size: 15px;
-            margin-top: 20px;
-
-        &:hover, &:focus {
-            text-decoration: none;
-            opacity: .8;
-        }
-    }
+  }
 }
 
 #job-matching-filters {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    .expandable-childlist-open {
-        margin-bottom: 10px;
+  .expandable-childlist-open {
+    margin-bottom: 10px;
+  }
+
+  legend {
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+    margin-bottom: 1px;
+
+    a {
+      // color: blue;
     }
 
-    legend {
-        display: block;
-        width: 100%;
-        padding: 10px 5px;
-        border-bottom: 1px solid #e0e0e0;
-        font-size: 16px;
-        margin-bottom: 1px;
-
-        a {
-            // color: blue;
-        }
-
-    	&.expandable-child-open {
-    	    // background: blue;
-    	}
+    &.expandable-child-open {
+      // background: blue;
     }
+  }
 
-    fieldset {
-        width: 100%;
-    }
+  fieldset {
+    width: 100%;
+  }
 }
 
 .job-matching-location {
+  label {
+    font-size: 14px;
+  }
 
-    label {
-        font-size: 14px;
-    }
+  input {
+    border: 1px solid #c7c7c7;
+    border-radius: 0;
+  }
 
-    input {
-        border: 1px solid #c7c7c7;
-        border-radius: 0;
-    }
-
-    button {
-        background: blue;
-        color: blue;
-        border: 0;
-        font-size: 12px;
-        padding: 8px 12px;
-    }
+  button {
+    background: blue;
+    color: blue;
+    border: 0;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
 }
 
 .job-matching-filter-list {
@@ -2934,26 +2880,25 @@ job matching page
     color: #333;
   }
 
-    label {
-        font-size: 14px;
-    }
+  label {
+    font-size: 14px;
+  }
 }
 
 .job-matching-filter-list input[type="checkbox"]:checked+label {
-    background: #fff;
-    cursor: pointer;
-    color: #333;
+  background: #fff;
+  cursor: pointer;
+  color: #333;
 
-
-    &:hover, &:focus {
-        background: none;
-    }
-
-
+  &:focus,
+  &:hover {
+    background: none;
+  }
 }
 
-.job-matching-filter-list input[type="checkbox"]:focus:checked+label, .job-matching-filter-list input[type="checkbox"]:hover:checked+label {
-    background: none;
+.job-matching-filter-list input[type="checkbox"]:focus:checked+label,
+.job-matching-filter-list input[type="checkbox"]:hover:checked+label {
+  background: none;
 }
 /* =================================================================
 maintenance page
@@ -2971,7 +2916,6 @@ maintenance page
     vertical-align: middle;
   }
 }
-
 /* =================================================================
 Secondary Pages
 ================================================================= */
@@ -2989,10 +2933,9 @@ Secondary Pages
   }
 
   a {
-    color: #0000EE
+    color: #0000EE;
   }
 }
-
 /* =================================================================
 social share - need to update icon references to match shared resources
 ================================================================= */
@@ -3384,11 +3327,9 @@ Map module
     display: inherit;
   }
 }
-
 /* =================================================================
 Content Pages - Universal
 ================================================================= */
-
 .directory {
   margin-bottom: 30px;
   @include breakpoint($end-small) {
@@ -3412,14 +3353,12 @@ Content Pages - Universal
   &__list {
     padding: 0 15px;
     border: solid #e0e0e0;
-    border-width: 0px 1px 1px 1px;
-    border-radius: 0px 0px 6px 6px;
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 6px 6px;
   }
 
   &__item {
-
     &:not(:last-of-type) {
-
       .directory__link {
         border-bottom: 1px dotted #e9e9e9;
       }
@@ -3460,8 +3399,8 @@ Content Pages - Universal
   }
 
   &__sub-list {
-      margin-left: 30px;
-      list-style-type: circle;
+    margin-left: 30px;
+    list-style-type: circle;
   }
 
   &__item {
@@ -3481,6 +3420,10 @@ Content Pages - Universal
   &__sub-heading {
     font-weight: bold;
     margin-bottom: 20px;
+
+    #health & {
+      margin-bottom: 10px;
+    }
   }
 
   &__text {
@@ -3495,7 +3438,6 @@ Content Pages - Universal
       color: #075290;
       text-decoration: underline;
     }
-
   }
 
   &__link {
@@ -3505,14 +3447,12 @@ Content Pages - Universal
     @include breakpoint($end-small) {
       margin-top: 15px;
     }
-
   }
 
   .white-box-img {
     margin-top: 30px;
     display: block;
   }
-
 }
 
 .intro {
@@ -3529,9 +3469,7 @@ Content Pages - Universal
     margin-bottom: 13px;
     font-weight: bold;
   }
-
 }
-
 
 .black-box-img {
   position: relative;
@@ -3563,6 +3501,7 @@ Content Pages - Universal
       font-size: 19px;
       margin-bottom: 15px;
     }
+
     p {
       font-size: 17px;
     }
@@ -3570,7 +3509,6 @@ Content Pages - Universal
 }
 
 .white-box-img {
-
   &__img {
     width: 100%;
     border-radius: 6px;
@@ -3585,9 +3523,7 @@ Content Pages - Universal
     border-radius: 0 0 6px 6px;
   }
 }
-
 // Featured Jobs & Job matching bottom on CP's
-
 .featured-job-match {
   @include breakpoint(1200px) {
     margin-top: 100px;
@@ -3599,32 +3535,24 @@ Content Pages - Universal
       max-width: 300px;
     }
   }
+
   .row-element-left {
     @include breakpoint(1200px) {
       width: calc(100% - 320px);
-
     }
   }
 }
-
-
-
 /* =================================================================
 Content Pages - Working Here
 ================================================================= */
-
 #working-here {
-
   // Sections that go to 2 columns at desktop
-
   .commissioned-corps {
-
-
-      .left-lg{
-        @include breakpoint(1200px) {
-          padding-right: 50px;
-        }
+    .left-lg {
+      @include breakpoint(1200px) {
+        padding-right: 50px;
       }
+    }
 
     .blue-line-table {
       margin-bottom: 20px;
@@ -3633,7 +3561,6 @@ Content Pages - Working Here
       }
     }
   }
-
 
   .overseas {
     @include clearfix;
@@ -3644,9 +3571,7 @@ Content Pages - Working Here
       }
     }
   }
-
 }
-
 /* =================================================================
 Content Pages - Commissioned Corps
 ================================================================= */
@@ -3658,7 +3583,6 @@ Content Pages - Commissioned Corps
     }
   }
 }
-
 /* =================================================================
 CMS created pages
 ================================================================= */
@@ -3978,13 +3902,9 @@ Search Map Styles
     }
   }
 }
-
-
 /* =================================================================
 Video SLider
 ================================================================= */
-
-
 .video-sliders {
   h2 {
     font-size: 22px;
@@ -4003,7 +3923,6 @@ Video SLider
   }
 
   .video-container {
-
     &:before {
       content: " ";
       display: inline-block;
@@ -4015,17 +3934,17 @@ Video SLider
       top: 41%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      transition: .3s;
+      transition: 0.3s;
       @include breakpoint($end-small) {
         top: 50%;
       }
     }
 
-    &:hover, &:focus {
-
+    &:focus,
+    &:hover {
       &:before {
         transform: translateX(-50%) translateY(-50%) scale(1.2);
-        transition: .3s;
+        transition: 0.3s;
       }
     }
 
@@ -4286,14 +4205,9 @@ Video SLider
   right: 0;
   background: url("../v3_0/img/icons/slick-next.png") center center no-repeat !important;
 }
-
-
-
-
 /* =================================================================
 Events Calendar
 ================================================================= */
-
 #event-calendar-area {
   background: #f0f0f0;
   width: 100%;
@@ -4306,25 +4220,23 @@ Events Calendar
 }
 
 #eventsWrapper {
-    margin:0 auto;
-    padding: 0;
-    width:100%;
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
 
-
-    p.calendar-instructions{
-        padding: 10px 15px 0;
-        line-height: 1.2em;
-        @include breakpoint($mid-small){
-            position: relative;
-            width: 81%;
-            top: 0;
-            left: 0;
-
-        }
+  p.calendar-instructions {
+    padding: 10px 15px 0;
+    line-height: 1.2em;
+    @include breakpoint($mid-small) {
+      position: relative;
+      width: 81%;
+      top: 0;
+      left: 0;
     }
+  }
 }
 
 .calendar-instructions {
@@ -4337,592 +4249,615 @@ Events Calendar
 }
 
 #mixedWrapper {
-    width:100%;
-    padding:0;
-    margin: 3rem 0 0;
-    background:#075290;
-    @include breakpoint($end-small){
-        display:flex;
-    }
+  width: 100%;
+  padding: 0;
+  margin: 3rem 0 0;
+  background: #075290;
+  @include breakpoint($end-small) {
+    display: flex;
+  }
 }
 
-
 #eventsCalendar {
-    background:#075290;
-    width:100%;
+  background: #075290;
+  width: 100%;
+  @include breakpoint($end-small) {
+    float: left;
+    width: calc(60% - 10px);
+    padding: 16px 5px 5px;
+    -webkit-flex: 2;
+    /* Safari 6.1+ */
+    -ms-flex: 2;
+    /* IE 10 */
+    flex: 2;
+  }
 
-    @include breakpoint($end-small){
-        float:left;
-        width:calc(60% - 10px);
-        padding: 16px 5px 5px;
-        -webkit-flex: 2; /* Safari 6.1+ */
-        -ms-flex: 2; /* IE 10 */
-        flex: 2;
+  h1 {
+    color: #fff;
+    margin: 0;
+    padding: 15px;
+  }
+
+  #datepicker {
+    padding: 15px 0;
+    background: #fff;
+    position: relative;
+    display: none;
+
+    html.js & {
+      display: block;
+    }
+    @include breakpoint($end-small) {
+      margin: 0 15px 15px;
     }
 
-    h1 {
-        color:#fff;
-        margin:0;
-        padding:15px;
+    .ui-datepicker-title {
+      font-size: 22px;
+      line-height: 40px;
     }
 
-    #datepicker {
-        padding:15px 0;
-        background:#fff;
-        position:relative;
-        display:none;
+    div.ui-datepicker-header {
+      position: relative;
+      padding: 5px 0;
+      @include breakpoint($end-small) {
+        padding: 5px 15px;
+      }
 
-        html.js &{
-            display:block;
+      a.ui-datepicker-prev {
+        float: left;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        background: rgba(7,82,144,.3);
+        text-align: center;
+        position: relative;
+
+        &:after {
+          font-family: 'FontAwesome';
+          content: '\f053';
+          display: inline-block;
+          text-align: center;
+          color: #fff;
+          font-size: 22px;
+          line-height: 40px;
+          position: absolute;
+          top: 0;
+          left: 25%;
         }
 
-
-        @include breakpoint($end-small) {
-            margin:0 15px 15px;
+        &:active,
+        &:focus,
+        &:hover {
+          background: rgba(7,82,144,1);
         }
 
-        .ui-datepicker-title{
-            font-size:22px;
-            line-height:40px;
+        span {
+          visibility: hidden;
         }
-        div.ui-datepicker-header{
-            position:relative;
-            padding:5px 0;
+      }
 
-            @include breakpoint($end-small) {
-                padding:5px 15px;
+      a.ui-datepicker-next {
+        float: right;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        background: rgba(7,82,144,.3);
+        text-align: center;
+        position: relative;
+
+        &:after {
+          font-family: 'FontAwesome';
+          content: '\f054';
+          display: inline-block;
+          text-align: center;
+          color: #fff;
+          font-size: 22px;
+          line-height: 40px;
+          top: 0;
+          right: 25%;
+          position: absolute;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+          background: rgba(7,82,144,1);
+        }
+
+        span {
+          visibility: hidden;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: 40px;
+      font-size: 14px;
+
+      th {
+        font-weight: bold;
+      }
+
+      tr {
+        margin: 15px 0;
+        padding: 0;
+      }
+
+      tbody {
+        td {
+          span {
+            text-align: center;
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            text-decoration: none;
+            line-height: 40px;
+          }
+
+          a {
+            text-align: center;
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            text-decoration: none;
+            color: $blue;
+
+            &:active,
+            &:focus,
+            &:hover {
+              text-decoration: underline;
             }
+          }
 
-            a.ui-datepicker-prev {
-                float:left;
-                cursor:pointer;
-                width:40px;
-                height:40px;
-                overflow:hidden;
-                background:rgba(7,82,144,.3);
-                text-align:center;
-                position: relative;
-                    &:after{
-                        font-family:'FontAwesome';
-                        content:'\f053';
-                        display:inline-block;
-                        text-align:center;
-                        color:#fff;
-                        font-size:22px;
-                        line-height:40px;
-                        position: absolute;
-                        top: 0;
-                        left: 25%;
-                    }
-                    &:active,
-                    &:focus,
-                    &:hover{
-                        background:rgba(7,82,144,1);
-                    }
-                    span {
-                    visibility: hidden;
-                }
+          &.has-dates.active {
+            a {
+              background: #b1d9fd;
+              color: #000;
+              font-weight: bold;
+
+              &:active,
+              &:focus,
+              &:hover {
+                background: #000;
+                color: #fff;
+              }
             }
-            a.ui-datepicker-next {
-                float:right;
-                cursor:pointer;
-                width:40px;
-                height:40px;
-                overflow:hidden;
-                background:rgba(7,82,144,.3);
-                text-align:center;
-                position: relative;
-                &:after{
-                    font-family:'FontAwesome';
-                    content:'\f054';
-                    display:inline-block;
-                    text-align:center;
-                    color:#fff;
-                    font-size:22px;
-                    line-height:40px;
-                    top: 0;
-                    right: 25%;
-                    position: absolute;
-                }
+          }
+
+          &.has-dates,
+          &.ui-datepicker-current-day {
+            a {
+              background: #075290;
+              color: #fff;
+
+              &:active,
+              &:focus,
+              &:hover {
+                background: #000;
+                color: #fff;
+              }
+
+              &.active {
+                background: #b1d9fd;
+                color: #000;
+
                 &:active,
                 &:focus,
-                &:hover{
-                    background:rgba(7,82,144,1);
+                &:hover {
+                  background: #000;
+                  color: #fff;
                 }
-                span {
-                    visibility: hidden;
-                }
+              }
             }
+          }
         }
-
-        table {
-            width:100%;
-            margin:0;
-            padding:0;
-            line-height:40px;
-            font-size: 14px;
-
-            th {
-              font-weight: bold;
-            }
-
-            tr {
-                margin:15px 0;
-                padding:0;
-            }
-
-            tbody{
-
-                td{
-                    span {
-                        text-align:center;
-                        display:block;
-                        width:40px;
-                        height:40px;
-                        margin:0 auto;
-                        text-decoration:none;
-                        line-height:40px;
-                    }
-                    a{
-                        text-align:center;
-                        display:block;
-                        width:40px;
-                        height:40px;
-                        margin:0 auto;
-                        text-decoration:none;
-                        color: $blue;
-
-                        &:hover,
-                        &:focus,
-                        &:active {
-                            text-decoration:underline;
-                        }
-                    }
-
-                    &.has-dates.active{
-                        a{
-                            background:#b1d9fd;
-                            color:#000;
-                            font-weight:bold;
-
-                            &:hover,
-                            &:focus,
-                            &:active{
-                                background:#000;
-                                color:#fff;
-                            }
-
-                        }
-                    }
-
-                    &.ui-datepicker-current-day,
-                    &.has-dates{
-                        a{
-                            background:#075290;
-                            color:#fff;
-                            &:hover,
-                            &:focus,
-                            &:active{
-                                background:#000;
-                                color:#fff;
-                            }
-
-                            &.active{
-                                background:#b1d9fd;
-                                color:#000;
-                                &:hover,
-                                &:focus,
-                                &:active{
-                                    background:#000;
-                                    color:#fff;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 #eventsPreview {
-        width: 100%;
-        background:#b1d9fd;
-        padding:15px;
-        position:relative;
-        display:none;
-        font-size: 14px;
+  width: 100%;
+  background: #b1d9fd;
+  padding: 15px;
+  position: relative;
+  display: none;
+  font-size: 14px;
 
-        .default-text {
-            margin-top: 50px;
-            padding: 0 20px;
-        }
+  .default-text {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
 
-        html.js &{
-            display:block;
-        }
+  html.js & {
+    display: block;
+  }
+  @include breakpoint($end-small) {
+    -webkit-flex: 1;
+    /* Safari 6.1+ */
+    -ms-flex: 1;
+    /* IE 10 */
+    flex: 1;
+    float: right;
+    width: calc(40% - 30px);
+    border: solid 16px #075290;
+    border-width: 16px 20px 20px 0;
+  }
 
-
-        @include breakpoint($end-small){
-            -webkit-flex: 1; /* Safari 6.1+ */
-            -ms-flex: 1; /* IE 10 */
-            flex: 1;
-            float:right;
-            width:calc(40% - 30px);
-            border: solid 16px #075290;
-    		border-width: 16px 20px 20px 0;
-        }
-
-        div{
-            &:not(#preview-paging) {
-                margin-top:10px;
-            }
-            > span{
-                display:block;
-                margin:6px 0;
-                line-height:140%;
-                overflow-wrap: break-word;
-                font-size: 14px !important;
-
-
-                strong{
-                    margin-right:5px;
-                }
-
-                &.date,
-                &.title{
-                    font-weight:bold;
-                    strong{
-                        display:none;
-                    }
-                }
-
-                &.date{
-                    font-size:1.5rem;
-                    text-align:center;
-                    margin-bottom:25px;
-                }
-
-                a {
-                  color: #075290;
-
-                  &:after {
-                    content: " ";
-                    background: url(//tbcdn.talentbrew.com/company/250/v1_0/img/icon_out.png) center right no-repeat;
-                    padding-right: 13px;
-                    display: inline-block;
-                    height: 12px;
-                    width: 17px;
-                  }
-                }
-            }
-
-            &:not(#preview-paging):not(:nth-of-type(2)){
-                border-top: 1px solid rgba(0, 0, 0, 1);
-                margin-top: 20px;
-                padding-top: 10px;
-                > span.date{
-                    margin-bottom:6px;
-                }
-            }
-
-        }
-
-
-    #preview-paging {
-        display:inline-block;
-        clear:both;
-        width:calc(100% - 30px);
-        position:absolute;
-        top:15px;
-        left:15px;
-
-        a {
-            background:rgba(7,82,144,.3);
-            color:#fff;
-            padding:0;
-            width:40px;
-            height:40px;
-            overflow:hidden;
-            text-align:center;
-            &:focus,
-            &:hover{
-                background:rgba(7,82,144,1);
-            }
-
-        &.next {
-            float:right;
-            &:after{
-                font-family:'FontAwesome';
-                content:'\f054';
-                display:inline-block;
-                text-align:center;
-                color:#fff;
-                font-size:22px;
-                line-height:40px;
-            }
-        }
-        &.prev {
-            float:left;
-            &:after{
-                font-family:'FontAwesome';
-                content:'\f053';
-                display:inline-block;
-                text-align:center;
-                color:#fff;
-                font-size:22px;
-                line-height:40px;
-            }
-        }
-        &.disabled{
-            display:none;
-        }
+  div {
+    &:not(#preview-paging) {
+      margin-top: 10px;
     }
+
+    > span {
+      display: block;
+      margin: 6px 0;
+      line-height: 140%;
+      overflow-wrap: break-word;
+      font-size: 14px !important;
+
+      strong {
+        margin-right: 5px;
+      }
+
+      &.date,
+      &.title {
+        font-weight: bold;
+
+        strong {
+          display: none;
+        }
+      }
+
+      &.date {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      a {
+        color: #075290;
+
+        &:after {
+          content: " ";
+          background: url("//tbcdn.talentbrew.com/company/250/v1_0/img/icon_out.png") center right no-repeat;
+          padding-right: 13px;
+          display: inline-block;
+          height: 12px;
+          width: 17px;
+        }
+      }
+    }
+
+    &:not(#preview-paging):not(:nth-of-type(2)) {
+      border-top: 1px solid rgba(0, 0, 0, 1);
+      margin-top: 20px;
+      padding-top: 10px;
+
+      > span.date {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  #preview-paging {
+    display: inline-block;
+    clear: both;
+    width: calc(100% - 30px);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    a {
+      background: rgba(7,82,144,.3);
+      color: #fff;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      text-align: center;
+
+      &:focus,
+      &:hover {
+        background: rgba(7,82,144,1);
+      }
+
+      &.next {
+        float: right;
+
+        &:after {
+          font-family: 'FontAwesome';
+          content: '\f054';
+          display: inline-block;
+          text-align: center;
+          color: #fff;
+          font-size: 22px;
+          line-height: 40px;
+        }
+      }
+
+      &.prev {
+        float: left;
+
+        &:after {
+          font-family: 'FontAwesome';
+          content: '\f053';
+          display: inline-block;
+          text-align: center;
+          color: #fff;
+          font-size: 22px;
+          line-height: 40px;
+        }
+      }
+
+      &.disabled {
+        display: none;
+      }
+    }
+  }
 }
 
+.show {
+  display: none;
 }
-.show{
-    display: none;
-}
-
 
 #eventsViewAll {
-    text-align:center;
-    background:#f0f0f0;
-    color:#000;
-    font-weight:bold;
-    margin:15px auto;
-    display:none;
-    text-align:center;
-    border:1px solid #e5e5e5;
+  text-align: center;
+  background: #f0f0f0;
+  color: #000;
+  font-weight: bold;
+  margin: 15px auto;
+  display: none;
+  text-align: center;
+  border: 1px solid #e5e5e5;
 
-    html.js &{
-        display:block;
+  html.js & {
+    display: block;
+  }
+
+  > div {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  p {
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 40px;
+    padding: 0;
+    margin: 10px 0;
+    float: left;
+  }
+
+  #viewNav {
+    margin: 10px 0 10px 15px;
+    border: solid 1px #000;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background: #fff;
+    overflow: hidden;
+    display: inline-block;
+    border: solid 1px #000;
+    text-align: left;
+    float: left;
+
+    a {
+      padding: 0 15px;
+      line-height: 40px;
+      height: 40px;
+      background: #fff;
+      display: block;
+      float: left;
+      color: rgba(0,0,0,.7);
+      text-decoration: none;
+      width: 95px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+
+      &:active,
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+        outline: none;
+      }
     }
 
-    > div{
-        margin:0 auto;
-        display:inline-block;
+    &[data-cur-active = 'viewAll'] {
+      a#viewAll {
+        color: #fff;
+        background: #075290;
+        -webkit-border-top-left-radius: 40px;
+        -webkit-border-bottom-left-radius: 40px;
+        -moz-border-radius-topleft: 40px;
+        -moz-border-radius-bottomleft: 40px;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        font-size: 15px !important;
+        font-weight: 100 !important;
+      }
     }
 
-    p{
-        display:inline-block;
-        text-align:right;
-        font-weight:bold;
-        font-size:22px;
-        line-height:40px;
-        padding:0;
-        margin:10px 0;
-        float:left;
+    &[data-cur-active = 'viewMonth'] {
+      a#viewMonth {
+        color: #fff;
+        background: #075290;
+        -webkit-border-top-right-radius: 40px;
+        -webkit-border-bottom-right-radius: 40px;
+        -moz-border-radius-topright: 40px;
+        -moz-border-radius-bottomright: 40px;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+      }
     }
-
-    #viewNav{
-        margin:10px 0 10px 15px;
-        border:solid 1px #000;
-        -webkit-border-radius: 40px;
-        -moz-border-radius: 40px;
-        border-radius: 40px;
-        background:#fff;
-        overflow:hidden;
-        display:inline-block;
-        border:solid 1px #000;
-        text-align:left;
-        float:left;
-
-        a{
-            padding:0 15px;
-            line-height:40px;
-            height:40px;
-            background:#fff;
-            display:block;
-            float:left;
-            color:rgba(0,0,0,.7);
-            text-decoration:none;
-            width:95px;
-            text-align:center;
-            font-size: 15px;
-            font-weight: 600;
-
-            &:hover,
-            &:focus,
-            &:active{
-                text-decoration:underline;
-                outline:none;
-            }
-
-
-        }
-
-        &[data-cur-active = 'viewAll']{
-            a#viewAll{
-                color:#fff;
-                background:#075290;
-                -webkit-border-top-left-radius: 40px;
-                -webkit-border-bottom-left-radius: 40px;
-                -moz-border-radius-topleft: 40px;
-                -moz-border-radius-bottomleft: 40px;
-                border-top-left-radius: 40px;
-                border-bottom-left-radius: 40px;
-                font-size: 15px !important;
-                font-weight: 100 !important;
-            }
-        }
-        &[data-cur-active = 'viewMonth']{
-            a#viewMonth{
-                color:#fff;
-                background:#075290;
-                -webkit-border-top-right-radius: 40px;
-                -webkit-border-bottom-right-radius: 40px;
-                -moz-border-radius-topright: 40px;
-                -moz-border-radius-bottomright: 40px;
-                border-top-right-radius: 40px;
-                border-bottom-right-radius: 40px;
-                font-size: 15px !important;
-                font-weight: 600 !important;
-            }
-        }
-    }
+  }
 }
 
 #eventsList {
-    clear:both;
-    width:100%;
-    margin:0 auto 20px;
-    position:relative;
-    padding:0;
-    display:block;
+  clear: both;
+  width: 100%;
+  margin: 0 auto 20px;
+  position: relative;
+  padding: 0;
+  display: block;
 
-    html.js &{
-        display:none;
-    }
+  html.js & {
+    display: none;
+  }
 
-    h2 {
-        padding:10px 20px;
-        margin:0 auto;
-        background:#075290;
-        font-size:22px;
-        color:#fff;
-        text-align:left;
-        line-height:140%;
-    }
+  h2 {
+    padding: 10px 20px;
+    margin: 0 auto;
+    background: #075290;
+    font-size: 22px;
+    color: #fff;
+    text-align: left;
+    line-height: 140%;
+  }
 
-    div{
-        > span{
-            display:block;
-            margin:6px 0;
-            font-size: 16px;
-            line-height: 20px;
+  div {
+    > span {
+      display: block;
+      margin: 6px 0;
+      font-size: 16px;
+      line-height: 20px;
 
-            &.date{
-                font-size: 17px;
-                font-weight:bold;
-                strong{
-                    display:none;
-                }
-            }
-            &.title{
-                font-weight: 600;
-                font-size: 16px;
-                color:#075290;
-                strong{
-                    display:none;
-                }
-            }
+      &.date {
+        font-size: 17px;
+        font-weight: bold;
 
+        strong {
+          display: none;
         }
-    }
+      }
 
-    ul {
-        list-style:none;
-        margin:0;
-        padding:0;
+      &.title {
+        font-weight: 600;
+        font-size: 16px;
+        color: #075290;
 
-        li {
-            display:block;
-            margin:0 0 7px;
-            padding:15px;
-            border:solid 1px #ccc;
-
-            html.js &{
-                display:none;
-            }
-
-            &.active{
-                html.js &{
-                    display:block;
-                }
-            }
-
-            &:nth-of-type(2n){
-                background-color:#f0f0f0;
-            }
-
-            span{
-                strong{
-                    margin-right:5px;
-                }
-            }
-
+        strong {
+          display: none;
         }
+      }
     }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+      margin: 0 0 7px;
+      padding: 15px;
+      border: solid 1px #ccc;
+
+      html.js & {
+        display: none;
+      }
+
+      &.active {
+        html.js & {
+          display: block;
+        }
+      }
+
+      &:nth-of-type(2n) {
+        background-color: #f0f0f0;
+      }
+
+      span {
+        strong {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
 
-
-
 #list-paging {
-    display:inline-block;
-    width:100%;
-    padding:0;
-    margin:0 auto;
-    position:relative;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
 
-    &.prev {
-        position:absolute;
-        color:#fff;
-        margin-left: 15px;
-        left:15px;
-        bottom:10px;
-    }
-    &.next {
-        position:absolute;
-        color:#fff;
-        margin-right: 15px;
-        right:15px;
-        bottom:10px;
-    }
+  &.prev {
+    position: absolute;
+    color: #fff;
+    margin-left: 15px;
+    left: 15px;
+    bottom: 10px;
+  }
+
+  &.next {
+    position: absolute;
+    color: #fff;
+    margin-right: 15px;
+    right: 15px;
+    bottom: 10px;
+  }
 }
 
 .ui-datepicker-title {
-    margin:0 50px;
-    text-align:center;
-    font-weight:bold;
+  margin: 0 50px;
+  text-align: center;
+  font-weight: bold;
 }
 
 html.nav #wrapper #event-calendar-area.span12 {
-        width:100% !important;
-        max-width:100%;
-        margin-left:0;
-        margin-top:5px;
-
-    @include breakpoint($end-small){
-        width:calc(100% - 10px) !important;
-        max-width:100%;
-        margin-left:10px;
-    }
-    @include breakpoint(980px){
-        width:calc(100% - 10px) !important;
-        max-width:100%;
-        margin-left:10px;
-    }
-    @include breakpoint($max-width){
-        width:calc(100% - 15px) !important;
-        max-width:100%;
-        margin-left:15px;
-    }
+  width: 100% !important;
+  max-width: 100%;
+  margin-left: 0;
+  margin-top: 5px;
+  @include breakpoint($end-small) {
+    width: calc(100% - 10px) !important;
+    max-width: 100%;
+    margin-left: 10px;
+  }
+  @include breakpoint(980px) {
+    width: calc(100% - 10px) !important;
+    max-width: 100%;
+    margin-left: 10px;
+  }
+  @include breakpoint($max-width) {
+    width: calc(100% - 15px) !important;
+    max-width: 100%;
+    margin-left: 15px;
+  }
 }
-
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
